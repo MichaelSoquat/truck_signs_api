@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . $WORKDIR
 
 RUN apt-get update && \
-    apt-get install -y netcat-openbsd
+apt-get install -y build-essential gcc netcat-openbsd
 
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
