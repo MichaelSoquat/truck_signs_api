@@ -13,6 +13,7 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Quickstart](#quickstart)
+* [Usage](#usage)
 * [Screenshots of the Django Backend Admin Panel](#screenshots)
 * [Useful Links](#useful_links)
 
@@ -146,8 +147,25 @@ The behavior of some of the views had to be modified to address functionalities 
    <image-name>:<image-tag>
    ```
    
-8. (Optional) Create a super user in the container:
+## Usage
+
+After completing the basic setup in the Quickstart section, here are some additional details and customizations you may want to consider.
+
+1. Dockerfile Adjustments (optional)
+- If your application requires a different port or additional steps before starting the container, you can modify the Dockerfile.
+
+- Port Changes: Locate the EXPOSE instruction in the Dockerfile and change the port number according to your requirements.
+- Additional Steps: Add further commands to the Dockerfile if your application needs extra dependencies or configurations.
+
+2. Subsequent Steps
+- The remaining steps (creating Docker volumes, networks, and starting the PostgreSQL and API containers) are already covered in the Quickstart. Ensure that       you adjust the mentioned variables and settings according to your environment.
     
+- Network and Volumes: Make sure that the PostgreSQL database and API are running in the same Docker network, and that volumes are properly mounted to ensure      data persistence.
+- Environment Variables: Adjust environment variables like `DB_HOST`, `DJANGO_SUPERUSER_*`, etc., to fit your specific needs.
+
+3. (Optional) Manual superuser creation
+   You can create a superuser even manually after the container is running:
+
    Enter the container with this command:
    
    ```
@@ -159,6 +177,7 @@ The behavior of some of the views had to be modified to address functionalities 
    ```
    python manage.py createsuperuser
    ```
+
 
 __NOTE:__ To create Truck vinyls with Truck logos in them, first create the __Category__ Truck Sign, and then the __Product__ (can have any name). This is to make sure the frontend retrieves the Truck vinyls for display in the Product Grid as it only fetches the products of the category Truck Sign.
 
