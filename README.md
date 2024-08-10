@@ -102,18 +102,25 @@ The behavior of some of the views had to be modified to address functionalities 
 1. For the quickstart it is essential to do at least the steps 1-3 from the installation section.
 2. Adjust the Dockerfile if you want to expose another port or do extra steps.
 3. Create a docker image:
+   
    ```
    docker build -t <image-name>:<tag-name> .
    ```
+   
 4. Create a docker volume for storing the data:
+   
    ```
    docker volume create <volume-name>
    ```
+   
 5. Create a network to ensure the DB and API running in the same network:
+   
    ```
    docker network create <network-name>
    ```
+   
 6. Get the postgres container running:
+   
    ```
    docker run --name <docker-name> \ #DB_HOST must be equal to docker-name. If you just clone the repo its `db`. See entrypoint.sh.
     --network <networkname> \ 
@@ -123,23 +130,32 @@ The behavior of some of the views had to be modified to address functionalities 
     -v <postgres-volume>:/var/lib/postgresql/data \
     -d postgres
    ```
+   
 7. Get the API container running:
+   
    ```
    docker run --name <container-name> \
-    --network <network-name> \ # Must be the same network as database under point 6!
-    -p 8020:8000 \
-    -v <media-volume>:/app/media \
-    -v <static-volume>:/app/static \
-    --restart on-failure \
-    <image-name>:<image-tag>
+   --network <network-name> \ # Must be the same network like under point 6!
+   -p 8020:8000 \
+   -v <media-volume>:/app/media \
+   -v <static-volume>:/app/static \
+   --restart on-failure \
+   -e DJANGO_SUPERUSER_USERNAME=<username> \ # Built in django superuser creation
+   -e DJANGO_SUPERUSER_PASSWORD=<password> \
+   -e DJANGO_SUPERUSER_EMAIL=<email> \
+   <image-name>:<image-tag>
    ```
+   
 8. (Optional) Create a super user in the container:
+    
    Enter the container with this command:
+   
    ```
    docker exec -it <container-id> bash
    ```
 
    Create the super user:
+   
    ```
    python manage.py createsuperuser
    ```
