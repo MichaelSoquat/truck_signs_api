@@ -167,15 +167,15 @@ After completing the basic setup in the Quickstart section, here are some additi
 
      - Enter the container with this command:
    
-   ```
-   docker exec -it <container-id> bash
-   ```
+       ```
+       docker exec -it <container-id> bash
+       ```
 
      - Create the super user:
    
-   ```
-   python manage.py createsuperuser
-   ```
+       ```
+       python manage.py createsuperuser
+       ```
 
 
 __NOTE:__ To create Truck vinyls with Truck logos in them, first create the __Category__ Truck Sign, and then the __Product__ (can have any name). This is to make sure the frontend retrieves the Truck vinyls for display in the Product Grid as it only fetches the products of the category Truck Sign.
