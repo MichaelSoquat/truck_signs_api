@@ -12,6 +12,7 @@
 ## Table of Contents
 * [Description](#description)
 * [Installation](#installation)
+* [Quickstart](#quickstart)
 * [Screenshots of the Django Backend Admin Panel](#screenshots)
 * [Useful Links](#useful_links)
 
@@ -97,6 +98,8 @@ The behavior of some of the views had to be modified to address functionalities 
     python manage.py createsuperuser
     ```
 
+## Quickstart
+For the quickstart it is essential to do at least the steps 
 
 __NOTE:__ To create Truck vinyls with Truck logos in them, first create the __Category__ Truck Sign, and then the __Product__ (can have any name). This is to make sure the frontend retrieves the Truck vinyls for display in the Product Grid as it only fetches the products of the category Truck Sign.
 
