@@ -149,17 +149,15 @@ The behavior of some of the views had to be modified to address functionalities 
    
 ## Usage
 
-After completing the basic setup in the Quickstart section, here are some additional details and customizations you may want to consider.
+After completing the basic setup in the Quickstart section, here are some additional details and customizations you may want to consider (all optional).
 
-1. Dockerfile Adjustments (optional)
+1. Dockerfile adjustments
     - If your application requires a different port or additional steps before starting the container, you can modify the Dockerfile.
-
     - Port Changes: Locate the EXPOSE instruction in the Dockerfile and change the port number according to your requirements.
     - Additional Steps: Add further commands to the Dockerfile if your application needs extra dependencies or configurations.
 
-2. Subsequent Steps
+2. Subsequent steps
     - The remaining steps (creating Docker volumes, networks, and starting the PostgreSQL and API containers) are already covered in the Quickstart. Ensure that       you adjust the mentioned variables and settings according to your environment.
-    
     - Network and Volumes: Make sure that the PostgreSQL database and API are running in the same Docker network, and that volumes are properly mounted to     
       ensure data persistence.
     - Environment Variables: Adjust environment variables like `DB_HOST`, `DJANGO_SUPERUSER_*`, etc., to fit your specific needs.
@@ -167,13 +165,13 @@ After completing the basic setup in the Quickstart section, here are some additi
 3. (Optional) Manual superuser creation
    You can create a superuser even manually after the container is running:
 
-   Enter the container with this command:
+     - Enter the container with this command:
    
    ```
    docker exec -it <container-id> bash
    ```
 
-   Create the super user:
+     - Create the super user:
    
    ```
    python manage.py createsuperuser
