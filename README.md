@@ -152,16 +152,17 @@ The behavior of some of the views had to be modified to address functionalities 
 After completing the basic setup in the Quickstart section, here are some additional details and customizations you may want to consider.
 
 1. Dockerfile Adjustments (optional)
-- If your application requires a different port or additional steps before starting the container, you can modify the Dockerfile.
+    - If your application requires a different port or additional steps before starting the container, you can modify the Dockerfile.
 
-- Port Changes: Locate the EXPOSE instruction in the Dockerfile and change the port number according to your requirements.
-- Additional Steps: Add further commands to the Dockerfile if your application needs extra dependencies or configurations.
+    - Port Changes: Locate the EXPOSE instruction in the Dockerfile and change the port number according to your requirements.
+    - Additional Steps: Add further commands to the Dockerfile if your application needs extra dependencies or configurations.
 
 2. Subsequent Steps
-- The remaining steps (creating Docker volumes, networks, and starting the PostgreSQL and API containers) are already covered in the Quickstart. Ensure that       you adjust the mentioned variables and settings according to your environment.
+    - The remaining steps (creating Docker volumes, networks, and starting the PostgreSQL and API containers) are already covered in the Quickstart. Ensure that       you adjust the mentioned variables and settings according to your environment.
     
-- Network and Volumes: Make sure that the PostgreSQL database and API are running in the same Docker network, and that volumes are properly mounted to ensure      data persistence.
-- Environment Variables: Adjust environment variables like `DB_HOST`, `DJANGO_SUPERUSER_*`, etc., to fit your specific needs.
+    - Network and Volumes: Make sure that the PostgreSQL database and API are running in the same Docker network, and that volumes are properly mounted to     
+      ensure data persistence.
+    - Environment Variables: Adjust environment variables like `DB_HOST`, `DJANGO_SUPERUSER_*`, etc., to fit your specific needs.
 
 3. (Optional) Manual superuser creation
    You can create a superuser even manually after the container is running:
